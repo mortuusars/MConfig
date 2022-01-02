@@ -16,8 +16,11 @@ namespace MConfig.Demo
         // Constructor needs to be parameterless for deserialization to work.
         public Config()
         {
+            // Property can be created manually.
             _magicNumber = new ConfigProperty<int>(nameof(MagicNumber), 42, (n) => n >= 42, this);
             _appName = new ConfigProperty<string>(nameof(AppName), "TestApp", (s) => !string.IsNullOrWhiteSpace(s), this);
+
+            // Or registered using provided method. This is preferred. It will throw exception if property with same name registered twice.
             _dateTime = RegisterProperty("DateTime", DateTime.Now);
         }
 
@@ -36,7 +39,7 @@ namespace MConfig.Demo
         //Input string is created by ConfigBase.Serializer which is null by default.
         public override void Save(string? serializedConfig)
         {
-            //Leave empty if not required.
+            //Leave empty if not needed.
         }
     }
 }
