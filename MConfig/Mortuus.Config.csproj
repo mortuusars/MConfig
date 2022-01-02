@@ -11,8 +11,8 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
 	  <Version>1.0.0</Version>
-	  <PackageProjectUrl>https://github.com/mortuusars/MConfig</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/mortuusars/MConfig</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/mortuusars/Mortuus.Config</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/mortuusars/Mortuus.Config</RepositoryUrl>
 	  <RepositoryType>git</RepositoryType>
 	  <PackageTags>csharp config settings configuration</PackageTags>
 	  <PackageReleaseNotes>1.0.0 - Initial Release</PackageReleaseNotes>
