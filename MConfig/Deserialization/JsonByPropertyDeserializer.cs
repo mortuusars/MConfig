@@ -3,6 +3,10 @@ using System.Text.Json;
 
 namespace MConfig.Deserialization;
 
+/// <summary>
+/// Provides functionality to deserialize config properties one-by-one.<br>
+/// </br>If property is missing in Json string - it will have default value defined in a config.
+/// </summary>
 public class JsonByPropertyDeserializer : IConfigDeserializer
 {
     private readonly Action<string> _errorMessageCallback;
@@ -16,6 +20,13 @@ public class JsonByPropertyDeserializer : IConfigDeserializer
     /// </summary>
     public JsonByPropertyDeserializer(Action<string> errorMessageCallback) => _errorMessageCallback = errorMessageCallback;
 
+    /// <summary>
+    /// Deserializes serialized string to specified config type.
+    /// </summary>
+    /// <typeparam name="T">Type of config. Must have parameterless constructor for deserialization to work.</typeparam>
+    /// <param name="input">Serialized string.</param>
+    /// <returns>New instance of config class.<br></br>
+    /// Config will have default values if something went wrong or null if something went totally wrong.</returns>
     public T? Deserialize<T>(string input)
     {
         if (string.IsNullOrWhiteSpace(input))

@@ -10,6 +10,9 @@ namespace MConfig;
 /// </summary>
 public abstract class ConfigBase : INotifyPropertyChanged
 {
+    /// <summary>
+    /// Occurs when config property is changed (if new value is valid and not same as the old one).
+    /// </summary>
     public event PropertyChangedEventHandler? PropertyChanged;
 
     /// <summary>
@@ -26,7 +29,10 @@ public abstract class ConfigBase : INotifyPropertyChanged
 
     internal Dictionary<string, object> Properties { get; }
 
-    public ConfigBase()
+    /// <summary>
+    /// Base class constructor.
+    /// </summary>
+    protected ConfigBase()
     {
         Properties = new Dictionary<string, object>();
     }
@@ -44,13 +50,14 @@ public abstract class ConfigBase : INotifyPropertyChanged
     }
 
     /// <summary>
-    /// This method is called when <see cref="SaveOnPropertyChanged"/> is <see langword="true"/> and config property is changed.
+    /// This method is called by <see cref="Save()"/>. Leave empty if saving externally is not needed.
     /// </summary>
     /// <param name="serializedConfig">Result of the serialization. Can be <see langword="null"/>.</param>
     public abstract void Save(string? serializedConfig);
 
     /// <summary>
-    /// Serialize (using <see cref="Serializer"/>) and save config.
+    /// Serialize (using <see cref="Serializer"/>) and save config.<br></br>
+    /// This method is called when <see cref="SaveOnPropertyChanged"/> is <see langword="true"/> and config property is changed.
     /// </summary>
     public virtual void Save()
     {
@@ -88,7 +95,6 @@ public abstract class ConfigBase : INotifyPropertyChanged
     /// <typeparam name="T">Type of property.</typeparam>
     /// <param name="name">Name (key) of the property.</param>
     /// <param name="defaultValue">Value that a property will have after creation.</param>
-    /// <param name="isValid">Function to validate when setting a new value on the property. Called on every SetValue.</param>
     /// <returns>Created property.</returns>
     /// <exception cref="InvalidOperationException">When property with same name is already registered.</exception>
     protected ConfigProperty<T> RegisterProperty<T>(string name, T defaultValue)
@@ -107,6 +113,6 @@ public abstract class ConfigBase : INotifyPropertyChanged
         PropertyChanged?.Invoke(this, args);
 
         if (SaveOnPropertyChanged)
-            Save(Serialize());
+            Save();
     }
 }

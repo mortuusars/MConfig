@@ -1,4 +1,8 @@
 ﻿namespace MConfig.Serialization;
+
+/// <summary>
+/// Allows serialization of config class.
+/// </summary>
 public interface IConfigSerializer
 {
     /// <summary>

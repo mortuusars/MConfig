@@ -1,5 +1,8 @@
 ﻿namespace MConfig.Deserialization;
 
+/// <summary>
+/// Provides functionality to Deserialized config.
+/// </summary>
 public interface IConfigDeserializer
 {
     /// <summary>

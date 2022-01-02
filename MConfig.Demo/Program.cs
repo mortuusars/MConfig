@@ -1,21 +1,24 @@
-﻿using MConfig;
-using MConfig.Demo;
-using MConfig.Deserialization;
+﻿using MConfig.Deserialization;
 using MConfig.Serialization;
-using System.Text.Json;
 
-var config = new Config();
-config.MagicNumber = 999;
-var options = new JsonSerializerOptions() { WriteIndented = true };
-config.Serializer = new JsonConfigSerializer(msg => Console.WriteLine($"[Serialization] {msg}")) { JsonSerializerOptions = options };
-string? json = config.Serialize();
+namespace MConfig.Demo;
 
-if (json is null)
-    Console.WriteLine("Json");
-else
+public class Program
 {
-    json = json.Replace("\"MagicNumber\": 999,", "");
-    var newCfg = Config.Deserialize<Config>(new JsonByPropertyDeserializer(msg => Console.WriteLine($"[Deserialization] {msg}")), json);
-}
+    public static void Main(string[] args)
+    {
+        //Create default:
+        Config defaultConfig = new Config();
+        defaultConfig.PropertyChanged += (s, e) => Console.WriteLine(e.PropertyName); //Any client can subscribe to Config.PropertyChanged to receive updates.
 
-Console.ReadLine();
+        //Deserialize from string:
+        string json = "{ \"MagicNumber\":9999,\"AppName\":\"Example\",\"DateTime\":\"2046-01-02T13:48:46.4464316+02:00\"}";
+        Config deserializedConfig = Config.Deserialize<Config>(new JsonConfigDeserializer(), json) ?? new Config(); //Result of deserialization can be null if something fails.
+
+        //Serialize to string:
+        deserializedConfig.Serializer = new JsonConfigSerializer(); //Specify a serializer (it's null be default).
+        var serializedString = deserializedConfig.Serialize();
+
+        Console.ReadLine();
+    }
+}

@@ -18,6 +18,12 @@ public class JsonConfigDeserializer : IConfigDeserializer
     /// </summary>
     public JsonConfigDeserializer(Action<string> errorMessageCallback) => _errorMessageCallback = errorMessageCallback;
 
+    /// <summary>
+    /// Deserializes config from serialized json input string.
+    /// </summary>
+    /// <typeparam name="T">Type of config.</typeparam>
+    /// <param name="input">Serialized json string.</param>
+    /// <returns>Deserialized config or null if failed.</returns>
     public T? Deserialize<T>(string input)
     {        
         try

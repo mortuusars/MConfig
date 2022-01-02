@@ -1,8 +1,9 @@
 ﻿using MConfig.Deserialization;
+using MConfig.Serialization;
 
 namespace MConfig.Demo
 {
-    internal class Config : ConfigBase
+    public class Config : ConfigBase
     {
         public int MagicNumber { get => _magicNumber.Value; set => _magicNumber.SetValue(value); }
         public string AppName { get => _appName.Value; set => _appName.SetValue(value); }
@@ -12,6 +13,7 @@ namespace MConfig.Demo
         private readonly ConfigProperty<string> _appName;
         private readonly ConfigProperty<DateTime> _dateTime;
 
+        // Constructor needs to be parameterless for deserialization to work.
         public Config()
         {
             _magicNumber = new ConfigProperty<int>(nameof(MagicNumber), 42, (n) => n >= 42, this);
@@ -19,16 +21,22 @@ namespace MConfig.Demo
             _dateTime = RegisterProperty("DateTime", DateTime.Now);
         }
 
-        public override void Save(string? serializedConfig)
+        //Example factory method with dependency injection.
+        public static Config Deserialize(/*ILogger logger*/)
         {
-            if (serializedConfig is not null)
-                Console.WriteLine("Saved config:\n" + serializedConfig);
+            string json = "{}"; //Serialized json
+            var newConfig = Deserialize<Config>(new JsonConfigDeserializer(), json) ?? new Config();
+            // Set DI field:
+            //newConfig._logger = logger;
+            return newConfig;
         }
 
-        public static Config Deserialize()
+        //This method is called by ConfigBase.Save() when 'SaveOnPropertyChanged' is true and config property is changed.
+        //Can also be called manually.
+        //Input string is created by ConfigBase.Serializer which is null by default.
+        public override void Save(string? serializedConfig)
         {
-            var deserializer = new JsonByPropertyDeserializer(msg => Console.WriteLine(msg));
-            return Deserialize<Config>(deserializer, "") ?? new Config();
+            //Leave empty if not required.
         }
     }
 }
