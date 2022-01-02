@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MConfig", "MConfig\MConfig.csproj", "{8DFEA667-A3A2-441D-9E51-47207E9DB063}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mortuus.Config", "MConfig\Mortuus.Config.csproj", "{8DFEA667-A3A2-441D-9E51-47207E9DB063}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MConfig.Demo", "MConfig.Demo\MConfig.Demo.csproj", "{69E8B11C-C2D2-4582-B0CE-0F6817F44D30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mortuus.Config.Demo", "MConfig.Demo\Mortuus.Config.Demo.csproj", "{69E8B11C-C2D2-4582-B0CE-0F6817F44D30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MConfig.Tests", "MConfig.Tests\MConfig.Tests.csproj", "{2950A0A1-D1F6-4776-AA54-2C299EE17834}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mortuus.Config.Tests", "MConfig.Tests\Mortuus.Config.Tests.csproj", "{2950A0A1-D1F6-4776-AA54-2C299EE17834}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
