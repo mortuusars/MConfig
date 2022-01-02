@@ -15,7 +15,7 @@
 	  <RepositoryUrl>https://github.com/mortuusars/Mortuus.Config</RepositoryUrl>
 	  <RepositoryType>git</RepositoryType>
 	  <PackageTags>csharp config settings configuration</PackageTags>
-	  <PackageReleaseNotes>1.0.0 - Initial Release</PackageReleaseNotes>
+	  <PackageReleaseNotes>1.0.1 - Changed namespaces. 1.0.0 - Initial Release</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
