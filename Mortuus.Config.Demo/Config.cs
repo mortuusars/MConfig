@@ -1,7 +1,7 @@
-﻿using MConfig.Deserialization;
-using MConfig.Serialization;
+﻿using Mortuus.Config.Deserialization;
+using Mortuus.Config.Serialization;
 
-namespace MConfig.Demo
+namespace Mortuus.Config.Demo
 {
     public class Config : ConfigBase
     {

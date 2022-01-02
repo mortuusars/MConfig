@@ -1,8 +1,8 @@
-﻿using MConfig.Deserialization;
-using MConfig.Serialization;
+﻿using Mortuus.Config.Deserialization;
+using Mortuus.Config.Serialization;
 using Xunit;
 
-namespace MConfig.Tests;
+namespace Mortuus.Config.Tests;
 
 public class DeserializerTests
 {

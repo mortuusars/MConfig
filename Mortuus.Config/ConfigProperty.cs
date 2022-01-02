@@ -1,4 +1,4 @@
-﻿namespace MConfig;
+﻿namespace Mortuus.Config;
 
 /// <summary>
 /// Represents a config property

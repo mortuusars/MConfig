@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace MConfig.Deserialization;
+namespace Mortuus.Config.Deserialization;
 
 /// <summary>
 /// Allows deserailization of a json string to instance of config type (derived from <see cref="ConfigBase"/>).

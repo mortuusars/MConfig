@@ -2,7 +2,7 @@ using System;
 using System.Text.Json;
 using Xunit;
 
-namespace MConfig.Tests;
+namespace Mortuus.Config.Tests;
 
 public class ConfigBaseTests : ConfigBase
 {

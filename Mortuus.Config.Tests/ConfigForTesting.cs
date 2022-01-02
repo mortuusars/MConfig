@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MConfig.Tests
+namespace Mortuus.Config.Tests
 {
     public class ConfigForTesting : ConfigBase
     {

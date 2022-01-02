@@ -1,4 +1,4 @@
-﻿namespace MConfig.Serialization;
+﻿namespace Mortuus.Config.Serialization;
 
 /// <summary>
 /// Allows serialization of config class.

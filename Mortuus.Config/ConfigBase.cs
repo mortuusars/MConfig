@@ -1,9 +1,9 @@
-﻿using MConfig.Deserialization;
-using MConfig.Serialization;
+﻿using Mortuus.Config.Deserialization;
+using Mortuus.Config.Serialization;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
 
-namespace MConfig;
+namespace Mortuus.Config;
 
 /// <summary>
 /// Base class for config.

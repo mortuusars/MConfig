@@ -1,4 +1,4 @@
-﻿namespace MConfig.Deserialization;
+﻿namespace Mortuus.Config.Deserialization;
 
 /// <summary>
 /// Provides functionality to Deserialized config.

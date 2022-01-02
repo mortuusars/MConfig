@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Text.Json;
 
-namespace MConfig.Deserialization;
+namespace Mortuus.Config.Deserialization;
 
 /// <summary>
 /// Provides functionality to deserialize config properties one-by-one.<br>
